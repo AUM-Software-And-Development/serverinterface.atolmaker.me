@@ -1,0 +1,33 @@
+/* Reset */
+
+*
+{
+
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+html, body
+{
+
+    height: 100%;
+    width: 100%;;
+	
+}
+
+/* End_Reset */
+
+/* Document */
+
+.withimage
+{
+
+	background-image: url('../ImageMedia/PlaceholderBackground.png');
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	
+}
