@@ -1,11 +1,15 @@
 // Document elements
-const ClearButton = document.getElementById("serverinterfaceclearbutton")
+const ClearCodeButton = document.getElementById("serverinterfaceclearcodebutton")
 
 const SendButton = document.getElementById("serverinterfacesendbutton")
 
 const RefillButton = document.getElementById("serverinterfacerefillbutton")
 
-const HelloWorldJavaScriptString = "console.log('Hello, world!')";
+const ClearOutputButton = document.getElementById("serverinterfaceclearoutputbutton")
+
+const HelloWorldJavaScriptString = 'console.log("Hello, world!")'
+
+const FrontEndConsoleLogs = document.querySelector(".serverinterfaceoutputlogs")
 
 // Ace editor instantiation
 let ServerInterface = ace.edit("serverinterfaceinputbox")
@@ -34,8 +38,33 @@ let AceLibraries =
 
 }
 
+// Log allocations
+
+let ConsoleBuffer = []
+let ConsoleBufferIndex = 0
+
 /* Main */
 AceLibraries.init()
+
+function Display()
+{
+    if (ConsoleBuffer[ConsoleBufferIndex] === undefined)
+    {
+        
+        ConsoleBuffer.push('<span style="color:#369369">error</span>: Invalid code entered. Please type it like this: <span style="color:#303060;">console.log("Your message, or API key/Password")</span>"')
+        var newText = ConsoleBuffer[ConsoleBufferIndex]
+
+    }
+    else
+    {
+
+        var newText = '<span style="color:#303060">success</span>: ' + ConsoleBuffer[ConsoleBufferIndex]
+
+    }
+
+    FrontEndConsoleLogs.innerHTML += newText + "</br>"
+    ConsoleBufferIndex++
+}
 
 SendButton.addEventListener
 ('click',
@@ -49,6 +78,7 @@ SendButton.addEventListener
         {
 
             new Function(InputBoxContents)()
+            Display()
 
         } catch(err)
             {
@@ -61,7 +91,7 @@ SendButton.addEventListener
 
 )
 
-ClearButton.addEventListener
+ClearCodeButton.addEventListener
 ('click',
 
     () =>
@@ -93,6 +123,28 @@ RefillButton.addEventListener
         {
 
             ServerInterface.setValue(HelloWorldJavaScriptString);
+
+        } catch(err)
+            {
+
+                console.log(err)
+
+            }
+
+    }
+
+)
+
+ClearOutputButton.addEventListener
+('click',
+
+    () =>
+    {
+
+        try
+        {
+
+            FrontEndConsoleLogs.innerHTML = ""
 
         } catch(err)
             {

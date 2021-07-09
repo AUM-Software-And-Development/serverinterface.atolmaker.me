@@ -36,7 +36,7 @@
 	align-items: center;
 	justify-content: center;
     border: 2px solid black;
-	border-radius: 27px !important;
+	border-radius: 24px;
 	background: #C57FF0;
 
 }
@@ -93,7 +93,7 @@
 .hamburgerbutton:checked:hover + .hamburgernavlocation>div
 {
 
-	transform: rotate(270deg);
+	transform: rotate(240deg);
 
 }
 
