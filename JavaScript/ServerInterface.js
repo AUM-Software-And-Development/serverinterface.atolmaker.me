@@ -51,7 +51,7 @@ function Display()
     if (ConsoleBuffer[ConsoleBufferIndex] === undefined)
     {
         
-        ConsoleBuffer.push('<span style="color:#369369">error</span>: Invalid code entered. Please type it like this: <span style="color:#303060;">console.log("Your message, or API key/Password")</span>"')
+        ConsoleBuffer.push('<span style="color:#369369">error</span>: Invalid code entered. Please type it like this: <span style="color:#303060;">console.log("Your message, or API key/Password")</span>')
         var newText = ConsoleBuffer[ConsoleBufferIndex]
 
     }
